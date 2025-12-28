@@ -48,7 +48,7 @@ export default function Home() {
                 ))}
               </div>
 
-                            <div className="mt-8 rounded-3xl border border-[var(--border)] bg-white/55 p-6">
+              <div className="mt-8 rounded-3xl border border-[var(--border)] bg-white/55 p-6">
                 <div className="md:float-left md:mr-6 md:mb-4 w-full md:w-[320px] aspect-square overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--paper)] relative">
                   <div
                     className="absolute inset-0 opacity-70"
@@ -168,21 +168,6 @@ export default function Home() {
                   <div className="text-sm font-semibold text-slate-600">Also</div>
                   <div className="mt-1 font-display text-lg font-bold text-slate-900">Modern frontend</div>
                   <div className="mt-1 text-sm text-slate-600">React + TypeScript with performance and UX polish.</div>
-                </Card>
-              </div>
-
-              <div className="mt-4">
-                <Card className="p-4">
-                  <div className="text-sm font-semibold text-slate-600">Profile photo</div>
-                  <div className="mt-3 flex items-center gap-4">
-                    <div className="h-16 w-16 overflow-hidden rounded-2xl border border-slate-900/10 bg-white shadow-ring">
-                      <img src="/profile-placeholder.svg" alt="Profile placeholder" className="h-full w-full object-cover" />
-                    </div>
-                    <div className="text-sm text-slate-600">
-                      Replace <span className="font-semibold text-slate-900">public/profile-placeholder.svg</span> with your photo
-                      (same filename), or update this image path.
-                    </div>
-                  </div>
                 </Card>
               </div>
             </motion.div>
