@@ -48,6 +48,43 @@ export default function Home() {
                 ))}
               </div>
 
+                            <div className="mt-8 rounded-3xl border border-[var(--border)] bg-white/55 p-6">
+                <div className="md:float-left md:mr-6 md:mb-4 w-full md:w-[320px] aspect-square overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--paper)] relative">
+                  <div
+                    className="absolute inset-0 opacity-70"
+                    style={{ background: "..." }}
+                  />
+                  <img
+                    src={AnoshPhoto}
+                    alt="Anosh Fallah"
+                    className="relative h-full w-full object-cover object-left-top"
+                  />
+                </div>
+
+                <h2 className="font-display text-2xl font-extrabold tracking-tight text-[var(--ink)] md:text-3xl">
+                  About
+                </h2>
+
+                <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                  <p>
+                    I’m Anosh Fallah — a Senior Software Engineer and Cloud Architect with 15+ years of experience delivering enterprise-scale, full-stack
+                    and backend systems. My core strengths include Node.js, Python, React, TypeScript, GraphQL, Kafka, AWS serverless architectures, and
+                    event-driven microservices.
+                  </p>
+                  <p>
+                    Across Intuit, Medtronic, ADP, Disney ABC, and Ticketmaster, I’ve designed and shipped end-to-end applications using Spring Boot,
+                    FastAPI, React, and AWS (Lambda, SQS, Fargate) — driving measurable outcomes such as 93% performance improvements, 45% throughput
+                    increases, and resilient production platforms.
+                  </p>
+                  <p>
+                    I’m drawn to high-quality platforms and continuous improvement. I thrive in collaborative teams, enjoy solving ambiguous problems, and
+                    consistently deliver clean, well-tested, maintainable code.
+                  </p>
+                </div>
+
+                <div className="clear-both" />
+              </div>
+
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/work">
                   <Button>
