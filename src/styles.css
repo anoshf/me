@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html, body { height: 100%; }
+
+body {
+  background: #f7f8fb;
+  color: #0f172a; /* slate-900 */
+}
+
+::selection { background: rgba(37, 99, 235, 0.18); }
+
+@layer components {
+  .glass {
+    @apply bg-white/80 border border-slate-900/10 shadow-soft backdrop-blur-xl;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/70 px-3 py-1 text-sm text-slate-700;
+  }
+  .link {
+    @apply text-slate-600 hover:text-slate-900 transition-colors;
+  }
+}
