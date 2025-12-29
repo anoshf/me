@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Container } from "@/components/Container";
 
 export function Footer() {
