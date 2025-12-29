@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeading } from "@/components/SectionHeading";
 import { profile } from "@/content/profile";
 import { Button } from "@/components/Button";
-import { Copy, LinkedinIcon, Mail, Phone } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import { Copy, Linkedin, Mail, Phone } from "lucide-react";
 
 function CopyRow({ label, value }: { label: string; value: string }) {
   const [copied, setCopied] = useState(false);
@@ -31,37 +30,16 @@ function CopyRow({ label, value }: { label: string; value: string }) {
 }
 
 export default function Contact() {
-  const formRef = useRef<HTMLFormElement | null>(null);
-
   const [name, setName] = useState("");
   const [fromEmail, setFromEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) return;
-    if (status === "sending") return;
-
-    setStatus("sending");
-
-    try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
-
-      await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
-
-      setName("");
-      setFromEmail("");
-      setMessage("");
-      setStatus("sent");
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
+  const mailto = useMemo(() => {
+    const subject = `Interview / Opportunity — ${profile.name}`;
+    const body = `Hi Anosh,\n\nName: ${name}\nEmail: ${fromEmail}\n\nMessage:\n${message}\n\nThanks,\n${name}`;
+    const params = new URLSearchParams({ subject, body });
+    return `mailto:${profile.email}?${params.toString()}`;
+  }, [name, fromEmail, message]);
 
   return (
     <div className="py-12 md:py-16">
@@ -69,22 +47,27 @@ export default function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Contact me"
-          desc="Use the form below to send a message directly, or reach out directly. I’m responsive and happy to share availability."
+          desc="Use the form below (opens your email client) or reach out directly. I’m responsive and happy to share availability."
         />
 
         <div className="grid gap-4 md:grid-cols-2">
           <Card>
             <div className="font-display text-xl font-bold text-slate-900">Send a message</div>
             <p className="mt-2 text-sm text-slate-600">
-              This is a static site, so messages are sent via EmailJS to {profile.email}.
+              This is a static site, so the form opens a pre-filled email to {profile.email}.
             </p>
 
-            <form ref={formRef} className="mt-4 grid gap-3" onSubmit={onSubmit}>
+            <form
+              className="mt-4 grid gap-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.location.href = mailto;
+              }}
+            >
               <label className="text-sm font-semibold text-slate-600">
                 Name
                 <input
                   required
-                  name="from_name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="mt-2 w-full rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -96,7 +79,6 @@ export default function Contact() {
                 Email
                 <input
                   required
-                  name="reply_to"
                   type="email"
                   value={fromEmail}
                   onChange={(e) => setFromEmail(e.target.value)}
@@ -109,7 +91,6 @@ export default function Contact() {
                 Message
                 <textarea
                   required
-                  name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={7}
@@ -119,13 +100,8 @@ export default function Contact() {
               </label>
 
               <Button className="w-full" type="submit">
-                {status === "sending" ? "Sending..." : "Send message"}
+                Send message
               </Button>
-
-              {status === "sent" && <div className="text-xs text-slate-500">Message sent successfully.</div>}
-              {status === "error" && (
-                <div className="text-xs text-slate-500">Failed to send. Please try again, or email me directly.</div>
-              )}
 
               <div className="text-xs text-slate-500">
                 Prefer direct email? Copy/paste my contact details on the right.
@@ -149,7 +125,7 @@ export default function Contact() {
               </a>
               <a href={profile.linkedin} target="_blank" rel="noreferrer">
                 <Button variant="ghost">
-                  <LinkedinIcon size={16} /> LinkedIn
+                  <Linkedin size={16} /> LinkedIn
                 </Button>
               </a>
               <a href={`tel:${profile.phone.replace(/[^0-9+]/g, "")}`}>
