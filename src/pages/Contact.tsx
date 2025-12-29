@@ -74,10 +74,7 @@ export default function Contact() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <Card>
-            <div className="font-display text-xl font-bold text-slate-900">Send a message</div>
-            <p className="mt-2 text-sm text-slate-600">
-              This is a static site, so messages are sent via EmailJS to {profile.email}.
-            </p>
+            <div className="font-display text-xl font-bold text-slate-900">Send me a Message</div>
 
             <form ref={formRef} className="mt-4 grid gap-3" onSubmit={onSubmit}>
               <label className="text-sm font-semibold text-slate-600">
