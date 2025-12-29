@@ -35,6 +35,11 @@ export function Navbar() {
           </NavLink>
         </nav>
 
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">
+          <Button variant="ghost">
+            <Linkedin size={16} /> LinkedIn
+          </Button>
+        </a>
         <a
           className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:shadow-soft"
           href="mailto:anosh7@gmail.com?subject=Interview%20opportunity%20for%20Anosh%20Fallah"
