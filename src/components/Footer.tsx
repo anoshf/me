@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "@/components/Container";
+import { cn } from "@/lib/cn";
+
+const linkBase = "text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors";
 
 export function Footer() {
   return (
