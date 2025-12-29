@@ -11,7 +11,7 @@ export function Footer() {
       <Container className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
         <div>
           <div className="font-display text-lg font-bold text-slate-900">Anosh Fallah</div>
-          <div className="mt-1 text-sm text-slate-600">Senior Full-Stack AI Engineer & Architect • San Diego, CA</div>
+          <div className="mt-1 text-sm text-slate-600">Senior Full-Stack AI Engineer & Architect</div>
         </div>
         <div className="flex flex-wrap gap-4 text-sm">
           <a className="link" href="https://linkedin.com/in/anoshf" target="_blank" rel="noreferrer">
