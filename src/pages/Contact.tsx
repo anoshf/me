@@ -39,7 +39,7 @@ export default function Contact() {
 
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
     if (status === "sending") return;
@@ -52,6 +52,44 @@ export default function Contact() {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
       await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
+
+      setName("");
+      setFromEmail("");
+      setMessage("");
+      setStatus("sent");
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
+  };
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === "sending") return;
+
+    setStatus("sending");
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
+      const messageWithMeta =
+        `${message}\n\n` +
+        `------------------------------\n` +
+        `Name: ${name}\n` +
+        `Email: ${fromEmail}`;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: name,
+          reply_to: fromEmail,
+          message: messageWithMeta,
+        },
+        { publicKey }
+      );
 
       setName("");
       setFromEmail("");
