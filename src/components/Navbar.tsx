@@ -2,7 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "@/components/Container";
 import { cn } from "@/lib/cn";
-import { Mail, Sparkles } from "lucide-react";
+import { profile } from "@/content/profile";
+import { LinkedinIcon, Mail, Sparkles } from "lucide-react";
+import { Button } from "@/components/Button";
 
 const linkBase = "text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors";
 
@@ -37,7 +39,7 @@ export function Navbar() {
 
         <a href={profile.linkedin} target="_blank" rel="noreferrer">
           <Button variant="ghost">
-            <Linkedin size={16} /> LinkedIn
+            <LinkedinIcon size={16} /> LinkedIn
           </Button>
         </a>
         <a
