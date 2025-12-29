@@ -2,9 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "@/components/Container";
 import { cn } from "@/lib/cn";
-import { profile } from "@/content/profile";
-import { LinkedinIcon, Mail, Sparkles } from "lucide-react";
-import { Button } from "@/components/Button";
+import { Mail, Sparkles } from "lucide-react";
 
 const linkBase = "text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors";
 
@@ -37,19 +35,12 @@ export function Navbar() {
           </NavLink>
         </nav>
 
-        <div>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
-            <Button variant="ghost">
-              <LinkedinIcon size={16} />
-            </Button>
-          </a>
-          <a
-            href="mailto:anosh7@gmail.com?subject=Interview%20opportunity%20for%20Anosh%20Fallah"
-            className="inline-flex items-center gap-2 rounded-2xlbg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:shadow-soft"
-          >
-            <Mail size={16} /> Reach out
-          </a>
-        </div>
+        <a
+          className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:shadow-soft"
+          href="mailto:anosh7@gmail.com?subject=Interview%20opportunity%20for%20Anosh%20Fallah"
+        >
+          <Mail size={16} /> Reach out
+        </a>
       </Container>
     </header>
   );
