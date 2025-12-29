@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   // Vite needs a matching `base` so assets load correctly.
   const viteBase = process.env.VITE_BASE;
   const repo = process.env.GH_PAGES_REPO || process.env.npm_package_name || "";
-  const base = viteBase ?? (mode === "production" && repo ? `/${repo}/` : "/");
+  const base = viteBase ?? (mode === "local" && repo ? `/${repo}/` : "/");
 
   return {
     base,

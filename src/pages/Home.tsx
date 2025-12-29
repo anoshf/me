@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import AnoshPhoto from "@/assets/IMG_5499.PNG";
+import MyPhoto from "@/assets/IMG_5499.PNG";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
@@ -56,7 +56,7 @@ export default function Home() {
                     style={{ background: "..." }}
                   />
                   <img
-                    src={AnoshPhoto}
+                    src={MyPhoto}
                     alt="Anosh Fallah"
                     className="relative h-full w-full object-cover object-left-top"
                   />
