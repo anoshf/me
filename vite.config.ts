@@ -5,14 +5,22 @@ import path from "node:path";
 export default defineConfig(({ mode }) => {
   // GitHub Pages serves project sites from: https://<user>.github.io/<repo>/
   // Vite needs a matching `base` so assets load correctly.
+  // - In GitHub Actions we set GH_PAGES_REPO to the repository name.
+  // - Locally you can set VITE_BASE to override (e.g., "/" for user pages).
   const viteBase = process.env.VITE_BASE;
   const repo = process.env.GH_PAGES_REPO || process.env.npm_package_name || "";
-  const base = viteBase ?? (mode === "local" && repo ? `/${repo}/` : "/");
+  const base = viteBase ?? (mode === "production" && repo ? `/${repo}/` : "/");
 
   return {
     base,
     plugins: [react()],
-    resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
-    build: { sourcemap: true }
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src")
+      }
+    },
+    build: {
+      sourcemap: true
+    }
   };
 });
