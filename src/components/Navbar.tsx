@@ -1,4 +1,5 @@
 import React from "react";
+import AnoshPhoto from "@/assets/IMG_5499.png";
 import { NavLink } from "react-router-dom";
 import { Container } from "@/components/Container";
 import { cn } from "@/lib/cn";
@@ -11,8 +12,15 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-900/10 bg-white/80 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-soft">
+          {/* <div className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-soft">
             <Sparkles size={18} />
+          </div> */}
+          <div className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 shadow-soft overflow-hidden">
+            <img
+              src={AnoshPhoto}
+              alt="Anosh Fallah"
+              className="h-full w-full object-cover"
+            />
           </div>
           <div className="leading-tight">
             <div className="font-display text-sm font-bold text-slate-900">Anosh Fallah</div>
