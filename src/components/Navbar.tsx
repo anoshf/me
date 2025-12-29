@@ -24,7 +24,7 @@ export function Navbar() {
           </div>
           <div className="leading-tight">
             <div className="font-display text-sm font-bold text-slate-900">Anosh Fallah</div>
-            <div className="text-xs text-slate-600">Staff Full-Stack Engineer</div>
+            <div className="text-xs text-slate-600">Senior Full-Stack AI Engineer & Architect</div>
           </div>
         </NavLink>
 
