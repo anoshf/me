@@ -135,7 +135,6 @@ export default function Contact() {
             <div className="mt-4 grid gap-3">
               <CopyRow label="Email" value={profile.email} />
               <CopyRow label="Phone" value={profile.phone} />
-              <CopyRow label="Location" value={profile.location} />
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">

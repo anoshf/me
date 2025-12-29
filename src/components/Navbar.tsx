@@ -28,7 +28,7 @@ export function Navbar() {
           </div>
         </NavLink>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="flex justify-end gap-3 hidden items-center gap-6 md:flex">
           <NavLink to="/story" className={({ isActive }) => cn(linkBase, isActive && "text-slate-900")}>
             Story
           </NavLink>
@@ -38,12 +38,6 @@ export function Navbar() {
           <NavLink to="/community" className={({ isActive }) => cn(linkBase, isActive && "text-slate-900")}>
             Community
           </NavLink>
-          <NavLink to="/contact" className={({ isActive }) => cn(linkBase, isActive && "text-slate-900")}>
-            Contact
-          </NavLink>
-        </nav>
-
-        <div className="flex justify-end gap-3">
           <a
             className="inline-flex items-center gap-2 rounded-2xl px-3 py-2 text-sm font-semibold
                       text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition"
@@ -54,17 +48,10 @@ export function Navbar() {
           >
             <LinkedinIcon className="h-4 w-4" />
           </a>
-
-          <a
-            className="inline-flex items-center gap-2 rounded-2xl px-3 py-2 text-sm font-semibold
-                      text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition"
-            href="mailto:anosh7@gmail.com?subject=Interview%20opportunity%20for%20Anosh%20Fallah"
-            aria-label="Email Anosh"
-          >
-            <Mail size={16} />
-            Reach out
-          </a>
-        </div>
+          <NavLink to="/contact" className={({ isActive }) => cn(linkBase, isActive && "text-slate-900")}>
+            Contact
+          </NavLink>
+        </nav>
 
       </Container>
     </header>
