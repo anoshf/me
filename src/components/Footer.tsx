@@ -13,7 +13,7 @@ export function Footer() {
           <a className="link" href="https://linkedin.com/in/anoshf" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a className="link" href="/Contact">
+          <a className="link" href="/contact">
             Email
           </a>
         </div>
