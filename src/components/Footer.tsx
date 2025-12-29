@@ -13,9 +13,9 @@ export function Footer() {
           <a className="link" href="https://linkedin.com/in/anoshf" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a className="link" href="/contact">
-            Email
-          </a>
+          <NavLink to="/contact" className={({ isActive }) => cn(linkBase, isActive && "text-slate-900")}>
+            Contact
+          </NavLink>
         </div>
       </Container>
     </footer>
