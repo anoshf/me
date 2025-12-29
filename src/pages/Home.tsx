@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import AnoshPhoto from "@/assets/IMG_5488.png";
 import { Container } from "@/components/Container";
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
